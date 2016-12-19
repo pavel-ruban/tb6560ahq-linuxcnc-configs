@@ -1,0 +1,34 @@
+#net spindle-rpm-filtered => pyvcp.spindle-speed
+#net xpos-cmd pyvcp.xpos-cmd
+#net xpos-fb pyvcp.xpos-fb
+#net mycounts stepgen.0.counts pyvcp.stepgen.0.counts
+
+net Xvel abs_x.out pyvcp.xvelmetr
+net Yvel abs_y.out pyvcp.yvelmetr
+net Zvel abs_z.out pyvcp.zvelmetr
+
+#net tool-change-trigger pyvcp.tool-change-button => halui.mdi-command-00
+#net tool-change-position  iocontrol.0.tool-change => halui.mdi-command-02
+net rapid-home pyvcp.rapid-home-button => halui.mdi-command-01
+net rapid-travel-home pyvcp.rapid-ztravel-button => halui.mdi-command-02
+#net tool-change flipflop_tool.out hal_manualtoolchange.change_button pyvcp.tool-change not_tool.in
+#halui.mdi-command-02 halui.mdi-command-03
+#net tool-changed-button pyvcp.tool-changed  flipflop_tool.reset
+
+#net tool-changed not_tool.out =>  hal_manualtoolchange.changed
+#net tool-changed pyvcp.tool-changed => iocontrol.0.tool-changed
+
+net tool-change iocontrol.0.tool-change hal_manualtoolchange.change
+net tool-number iocontrol.0.tool-number => pyvcp.tool-number
+net tool-prep iocontrol.0.tool-prep-number => pyvcp.tool-prep-number
+
+net tool-change iocontrol.0.tool-change hal_manualtoolchange.change
+net tool-pyvcp-changed pyvcp.tool-changed => hal_manualtoolchange.pyvcp_changed
+net tool-changed hal_manualtoolchange.changed => iocontrol.0.tool-changed
+#net tool-prepared pyvcp.tool-prepared-button => iocontrol.0.tool-prepared
+net tool-prepared hal_manualtoolchange.prepared => iocontrol.0.tool-prepared
+net tool-prepare iocontrol.0.tool-prepare => pyvcp.tool-prepare hal_manualtoolchange.prepare
+
+net tool-pyvcp-change <= hal_manualtoolchange.pyvcp_change => pyvcp.tool-change
+
+#net hard-cancel <= pyvcp.tool-abort-button => hal_hard_pause_resume.signal

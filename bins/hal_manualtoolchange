@@ -1,0 +1,70 @@
+#!/usr/bin/python2.7
+import sys, os
+import gettext
+
+BASE = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), ".."))
+gettext.install("axis", localedir=os.path.join(BASE, "share", "locale"),
+unicode=True)
+
+import linuxcnc, hal
+import rs274.options
+import time
+
+iniFile = linuxcnc.ini(os.environ['INI_FILE_NAME'])
+
+linuxcnc.nmlfile = os.path.join('/usr/share/linuxcnc/', iniFile.find('EMC', 'NML_FILE'))
+
+emcStat = linuxcnc.stat();
+emcCmd = linuxcnc.command()
+
+def do_change(n):
+    emcStat.poll()
+    curLine = emcStat.current_line
+
+    if curLine >= 0:
+        emcCmd.abort()
+        h.changed = True
+        h.pyvcp_change = True
+
+        while not h.pyvcp_changed:
+            time.sleep(0.1)
+
+        update_prepare()
+
+        emcCmd.mode(linuxcnc.MODE_AUTO)
+        emcCmd.auto(linuxcnc.AUTO_RUN, curLine + 1)
+
+        h.pyvcp_change = False
+
+    else:
+        h.changed = True
+        h.pyvcp_change = False
+
+def update_prepare():
+    if h.prepare:
+        time.sleep(0.1)
+        h.prepared = True
+        time.sleep(0.1)
+        h.prepared = False
+
+h = hal.component("hal_manualtoolchange")
+h.newpin("number", hal.HAL_S32, hal.HAL_IN)
+h.newpin("change", hal.HAL_BIT, hal.HAL_IN)
+h.newpin("prepare", hal.HAL_BIT, hal.HAL_IN)
+h.newpin("prepared", hal.HAL_BIT, hal.HAL_OUT)
+h.newpin("changed", hal.HAL_BIT, hal.HAL_OUT)
+h.newpin("pyvcp_changed", hal.HAL_BIT, hal.HAL_IN)
+h.newpin("pyvcp_change", hal.HAL_BIT, hal.HAL_OUT)
+h.ready()
+
+try:
+    while 1:
+        update_prepare()
+        if h.change:
+            do_change(h.number)
+        elif not h.change:
+            h.changed = True
+
+        time.sleep(0.1)
+except KeyboardInterrupt:
+    pass

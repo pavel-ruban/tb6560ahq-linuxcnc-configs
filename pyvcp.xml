@@ -1,0 +1,137 @@
+<pyvcp>
+<!--
+	<label>
+		<text>"stepgen.0.position-fb:"</text>
+	</label>
+	<number>
+		<halpin>"xpos-fb"</halpin>
+		<font>("Helvetica",24)</font>
+		<format>"+4.4f"</format>
+	</number>
+	<label>
+		<text>"stepgen.0.counts:"</text>
+	</label>
+	<s32>
+		<halpin>"stepgen.0.counts"</halpin>
+		<font>("Helvetica",24)</font>
+		<format>"4d"</format>
+	</s32>
+	<label>
+		<text>"stepgen.0.position-cmd:"</text>
+	</label>
+	<number>
+		<halpin>"xpos-cmd"</halpin>
+		<font>("Helvetica",24)</font>
+		<format>"+4.4f"</format>
+	</number>
+	<label>
+		<text>"X velocity:"</text>
+	</label>
+	<number>
+		<halpin>"xvel"</halpin>
+		<font>("Helvetica",24)</font>
+		<format>"+4.4f"</format>
+	</number>
+	<label>
+		<text>"Y velocity:"</text>
+	</label>
+	<number>
+		<halpin>"yvel"</halpin>
+		<font>("Helvetica",24)</font>
+		<format>"+4.4f"</format>
+	</number>
+	<label>
+		<text>"Z velocity:"</text>
+	</label>
+	<number>
+		<halpin>"zvel"</halpin>
+		<font>("Helvetica",16)</font>
+		<format>"+4.4f"</format>
+	</number>
+	<bar halpin="xvelbar" min_="-40" max_="40" zero="0" z0_border="0.2" z1_border="0.8"/>
+	-->
+	<button>
+    		<halpin>"rapid-ztravel-button"</halpin>
+		<text>"Travel Z Home XY"</text>
+	</button>
+	<button>
+    		<halpin>"rapid-home-button"</halpin>
+		<text>"Home XYZ"</text>
+	</button>
+	<label>
+		<text>"X velocity:"</text>
+	</label>
+	<meter>
+		<halpin>"xvelmetr"</halpin>
+		<size>120</size>
+		<min_>0</min_>
+		<max_>40</max_>
+		<majorscale>5</majorscale>
+		<minorscale>1.0</minorscale>
+		<region1>(0,10,"yellow")</region1>
+		<region2>(10,35,"green")</region2>
+		<region3>(35,40,"red")</region3>
+	</meter>
+	<label>
+		<text>"Y velocity:"</text>
+	</label>
+	<meter>
+		<halpin>"yvelmetr"</halpin>
+		<size>120</size>
+		<min_>0</min_>
+		<max_>40</max_>
+		<majorscale>5</majorscale>
+		<minorscale>1.0</minorscale>
+		<region1>(0,10,"yellow")</region1>
+		<region2>(10,35,"green")</region2>
+		<region3>(35,40,"red")</region3>
+	</meter>
+	<label>
+		<text>"Z velocity:"</text>
+	</label>
+	<meter>
+		<halpin>"zvelmetr"</halpin>
+		<size>120</size>
+		<min_>0</min_>
+		<max_>40</max_>
+		<majorscale>5</majorscale>
+		<minorscale>1.0</minorscale>
+		<region1>(0,10,"yellow")</region1>
+		<region2>(10,35,"green")</region2>
+		<region3>(35,40,"red")</region3>
+	</meter>
+<!--	<button>
+    		<halpin>"tool-abort-button"</halpin>
+		<text>"hard pause/resume"</text>
+	</button> -->
+	<s32>
+		<halpin>"tool-prep-number"</halpin>
+		<font>("Helvetica",24)</font>
+	</s32>
+	<rectled>
+		<halpin>"tool-prepare"</halpin>
+		<height>"25"</height>
+		<width>"150"</width>
+		<on_color>"red"</on_color>
+		<off_color>"green"</off_color>
+	</rectled>
+	<!--<button>
+    		<halpin>"tool-prepared-button"</halpin>
+		<text>"Tool prepared"</text>
+	</button>-->
+	<s32>
+		<halpin>"tool-number"</halpin>
+		<font>("Helvetica",24)</font>
+	</s32>
+	<rectled>
+		<halpin>"tool-change"</halpin>
+		<height>"25"</height>
+		<width>"150"</width>
+		<on_color>"red"</on_color>
+		<off_color>"green"</off_color>
+	</rectled>
+	<button>
+    		<halpin>"tool-changed"</halpin>
+		<text>"Tool changed"</text>
+	</button>
+</pyvcp>

@@ -1,0 +1,35 @@
+G21 G90 F2400
+
+g0z10
+t1
+m6
+g0z5x50y50
+g1z5x50y50
+;g04p3
+g0 x0y0z10
+
+g0z10
+t2
+m6
+g0z5x50y50
+g1z5x50y50
+;g04p3
+g0 x0y0z10
+
+g0z10
+t3
+m6
+g0z5x50y50
+g1z5x50y50
+;g04p3
+g0 x0y0z10
+
+g0z10
+t4
+m6
+g0z5x50y50
+g1z5x50y50
+;g04p3
+g0 x0y0z10
+
+m30

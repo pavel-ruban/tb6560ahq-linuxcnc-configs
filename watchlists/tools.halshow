@@ -1,0 +1,15 @@
+# halshow watchlist created Sun Aug 14 21:06:47 +07 2016
+
+pin+not_tool.in
+pin+not_tool.out
+pin+hal_manualtoolchange.change
+pin+hal_manualtoolchange.change_button
+pin+hal_manualtoolchange.changed
+pin+hal_manualtoolchange.number
+pin+iocontrol.0.tool-change
+pin+iocontrol.0.tool-changed
+pin+iocontrol.0.tool-number
+pin+iocontrol.0.tool-prep-number
+pin+iocontrol.0.tool-prep-pocket
+pin+iocontrol.0.tool-prepare
+pin+iocontrol.0.tool-prepared

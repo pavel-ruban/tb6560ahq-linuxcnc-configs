@@ -1,0 +1,1 @@
+sig+xpos-fb sig+ypos-fb sig+zpos-fb sig+XZhomesw sig+Xhomesw sig+Xhomeswpos sig+Yhomesw sig+Yhomeswpos sig+Zhomesw sig+Zhomeswpos comp+comp pin+comp_x.in1 pin+comp_x.in0 pin+comp_x.out pin+comp_y.in1 pin+comp_y.in0 pin+comp_y.out pin+axis.0.motor-pos-fb pin+axis.0.home-sw-in

@@ -1,0 +1,5 @@
+o<homeXYZ> sub
+G0 Z10
+G0 X0 Y0
+G0 Z0
+o<homeXYZ> endsub
